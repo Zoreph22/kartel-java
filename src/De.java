@@ -4,6 +4,9 @@ public class De {
     private int de[] = new int[6];
     private int facecourante;
 
+    public void setFaceCourante(int valeur){this.facecourante = valeur;}
+    public int getFacecourante(){return this.facecourante;}
+
     public void initDe(){
         de[0] = 2;
         de[1] = 2;
@@ -15,7 +18,7 @@ public class De {
 
     public int lancerDe(){
         int lancer = (int)(Math.random()*6);
-        return facecourante = de[lancer];
+        return this.facecourante = this.de[lancer];
     }
 
 }
