@@ -15,7 +15,11 @@ public class Kartel {
 
         Plateau p = new Plateau();
         p.initPlateau();
-        p.aff();
+        System.out.println(p.toString());
+        System.out.println();
+
+        Prison prison = new Prison();
+        System.out.println(prison.toString());
 
     }
 }

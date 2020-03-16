@@ -23,4 +23,13 @@ public class Prison {
         }
     }
 
+    public String toString(){
+        String mes = "Prison : ";
+        for(int i=0;i<=prison.length-1;i++){
+            if(prison[i] != null)
+                mes += prison[i].getId()+" - ";
+        }
+        return mes;
+    }
+
 }

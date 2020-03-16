@@ -4,6 +4,7 @@ public class Plateau {
     private Jeton plateau[] = new Jeton[43];
     private String lstngang[] = {"Rouge","Bleu","Vert","Jaune","Magenta","Orange","Violet"};
     private String lstpgang[] = {"boss","solo","duo1","duo2","trio","pdv"};
+	public int length;
  
     public Jeton getElemPlateau(int i){return this.plateau[i];}
     public void setElemPlateau(int i, Jeton valeur){this.plateau[i]= valeur;}
@@ -41,10 +42,13 @@ public class Plateau {
         }
     }
 
-    public void aff(){
-        for(int i=0;i<plateau.length-1;i++){
-            System.out.println(plateau[i].getId());
+    public String toString(){
+        String mes = "";
+        for(int i=0;i<=plateau.length-1;i++){
+            if(plateau[i] != null)
+                mes += plateau[i].getId()+" - ";
         }
+        return mes;
     }
 
 }
