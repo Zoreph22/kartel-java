@@ -3,7 +3,7 @@ package src;
 public class Plateau {
     //Attributs de la classe Plateau
     private Jeton plateau[] = new Jeton[43];
-    private Detective detective = new Detective("");
+    private Detective detective = new Detective();
     private String lstngang[] = {"Rouge","Bleu","Vert","Jaune","Magenta","Orange","Gris"};
     private String lstpgang[] = {"boss","solo","duo1","duo2","trio","pdv"};
  

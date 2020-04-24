@@ -23,7 +23,6 @@ public class Partie {
     //Initialisation de certains attributs
     public void initPartie(){
         plateau.initPlateau();
-        de.initDe();
     }
 
     //Méthode qui permet de gérer le tour de jeu d'un joueur
@@ -63,10 +62,12 @@ public class Partie {
             nextpos = currentpos + playcase;
         }
         if(plateau.getElemPlateau(nextpos) instanceof Boss){
-            prison.ajoutboss(plateau.getElemPlateau(nextpos));
+            Boss b = (Boss) plateau.getElemPlateau(nextpos);
+            prison.ajoutboss(b);
         }
         else{
-            joueur.getReserve().placeInReserve(plateau.getElemPlateau(nextpos));
+            Gang g = (Gang) plateau.getElemPlateau(nextpos);
+            joueur.getReserve().placeInReserve(g);
         }
         plateau.getDetective().deplacement(currentpos, playcase);
         plateau.setElemPlateau(nextpos, plateau.getDetective());
@@ -82,7 +83,7 @@ public class Partie {
             }
             gestionTour(joueurs[i]);
             i++;
-        }while(!prison.prisonVide());
+        }while(!prison.prisonPleine());
         affEtatPartie();
         System.out.println("Partie fini");
     }

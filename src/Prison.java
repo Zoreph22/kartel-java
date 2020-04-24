@@ -2,7 +2,7 @@ package src;
 
 public class Prison {
     //Attribut de la classe Prison
-    private Jeton prison[] = new Jeton[5];
+    private Boss prison[] = new Boss[5];
 
     //Méthode qui permet de réinitialiser la classe prison
     public void initPrison(){
@@ -14,11 +14,11 @@ public class Prison {
     }
 
     //Méthodes get et set de l'attribut prison
-    public void setPrisonElem(Jeton x, int j){this.prison[j]=x;}
+    public void setPrisonElem(Boss x, int j){this.prison[j]=x;}
     public Jeton getPrisonnier(int j){return this.prison[j];}
 
     //Méthode pour l'ajoute d'un boss dans la prison
-    public void ajoutboss(Jeton bossajout){
+    public void ajoutboss(Boss bossajout){
         for(int i=0;i<=prison.length-1;i++){
             if(prison[i]==null){
                 this.setPrisonElem(bossajout,i);
@@ -27,24 +27,37 @@ public class Prison {
         }
     }
 
-    //Méthode qui permet de vérifier si la prison est vide ou pas
-    public boolean prisonVide(){
-        boolean bool = true;
-        for(Jeton jeton : prison){
-            if(jeton != null)
-                bool = false;
-        }
-        return bool;
-    }
-
     //Méthode pour vérifier si un élément de type jeton est du même type qu'un boss qui se trouve dans la prison
-    public boolean bossInPrison(Jeton element){
+    public boolean bossInPrison(Boss element){
         boolean bool = false;
         for(int i=0;i<prison.length;i++){
             if(prison[i] != null && i<prison.length){
                 if(element.getGang()==prison[i].getGang()){
                     bool = true;
                 }
+            }
+        }
+        return bool;
+    }
+
+    public boolean gbossInPrison(Gang element){
+        boolean bool = false;
+            for(Boss boss : prison){
+                if(boss != null){
+                    if(boss.getGang().equals(element.getGang())){
+                        bool = true;
+                    }
+                }
+            }
+        return bool;
+    }
+
+    //Méthode pour savoir si la prison est pleine
+    public boolean prisonPleine(){
+        boolean bool = true;
+        for(Boss boss : prison){
+            if(boss == null){
+                bool = false;
             }
         }
         return bool;

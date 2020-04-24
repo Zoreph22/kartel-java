@@ -1,7 +1,6 @@
 package src;
 
-public class Gangster extends Jeton
-{
+public class Gangster extends Gang{
     //Attributs teamsize qui permet de connaître la valeur d'un gangster suivent si il est solo, duo ou trio
     private int teamsize;
 

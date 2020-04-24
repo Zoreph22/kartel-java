@@ -26,10 +26,5 @@ public class Detective extends Jeton
     public void deplacement(int oldpos, int nbcase){
         setPosition(oldpos+nbcase);
     }
-
-    //Constructeur de la classe Detective, on peut noter que la classe hérite de la classe Jeton
-    public Detective(String gang){
-        super("");
-    }
-
+    
 }
