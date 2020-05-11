@@ -6,4 +6,12 @@ public class PotDeVin extends Gang
     public PotDeVin(String gang){
         super(gang);
     }
+
+    public int calculValeur(Prison prison){
+        int valeur = 0;
+        if(!prison.gbossInPrison(this)){
+            valeur = 3;
+        }
+        return valeur;
+    }
 }

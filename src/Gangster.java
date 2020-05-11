@@ -13,4 +13,15 @@ public class Gangster extends Gang{
         super(gang);
         setTeamsize(size);
     }
+
+    public int calculValeur(Prison prison){
+        int valeur = 0;
+        if(prison.gbossInPrison(this)){
+            valeur = this.getTeamsize();
+        }
+        else{
+            valeur = -(this.getTeamsize());
+        }
+        return valeur;
+    }
 }

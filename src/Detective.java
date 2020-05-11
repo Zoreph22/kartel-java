@@ -10,7 +10,7 @@ public class Detective extends Jeton
     public int getPosition(){return this.position;}
 
     //Méthode qui retourne la position du detective sur le plateau
-    public int getCurrentPos(Plateau plateau){
+    public int CurrentPos(Plateau plateau){
         int i = 0;
         while(i<=42){
             if(plateau.getElemPlateau(i) instanceof Detective){

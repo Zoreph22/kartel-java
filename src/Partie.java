@@ -36,7 +36,7 @@ public class Partie {
             ok = false;
             System.out.println("C'est à "+joueur.getNom()+" de jouer");
             face = de.getFacecourante();
-            System.out.print("Résultat du dé : "+de.getFacecourante()+", ");
+            System.out.print("Résultat du dé : "+face+", ");
             System.out.print("que jouez-vous ? : ");
             while(!ok){
                 try{
@@ -48,15 +48,15 @@ public class Partie {
                     System.out.print("que jouez-vous ? : ");
                 }
             }
-        }while(nbcase>de.getFacecourante() || nbcase == 0);
+        }while(nbcase>face || nbcase == 0);
         recupjeton(nbcase, joueur, face);
     }
 
     //Méthode qui permet de récupérer les jeton, de déplacer le detective et de restart le plateau
     public void recupjeton(int playcase, Joueur joueur, int facede){
-        int currentpos = plateau.getDetective().getCurrentPos(plateau); 
+        int currentpos = plateau.getDetective().CurrentPos(plateau); 
         int nextpos = currentpos + playcase;
-        if(currentpos + facede >= plateau.getPlatLength()){
+        if(currentpos + facede >= plateau.PlatLength()){
             plateau.restartPlat();
             currentpos = 0;
             nextpos = currentpos + playcase;
@@ -85,7 +85,20 @@ public class Partie {
             i++;
         }while(!prison.prisonPleine());
         affEtatPartie();
-        System.out.println("Partie fini");
+        System.out.println("La partie du Jeu Kartel est fini !");
+        Joueur gagnant = findBestPlayer();
+        System.out.println("Le gagnant de la partie est le joueur "+gagnant.getNom()+" avec un score de : "+gagnant.getReserve().calcScore(prison));
+    }
+
+    public Joueur findBestPlayer(){
+        int max=0, i=0;
+        for(int j=0; i<joueurs.length-1;j++){
+            if(joueurs[j].getReserve().calcScore(prison) > max){
+                max = joueurs[j].getReserve().calcScore(prison);
+                i = j;
+            }
+        }
+        return joueurs[i];
     }
 
     //Méthode qui affiche l'état de la partie avec le tableau, la prison et les joueurs

@@ -28,18 +28,6 @@ public class Prison {
     }
 
     //Méthode pour vérifier si un élément de type jeton est du même type qu'un boss qui se trouve dans la prison
-    public boolean bossInPrison(Boss element){
-        boolean bool = false;
-        for(int i=0;i<prison.length;i++){
-            if(prison[i] != null && i<prison.length){
-                if(element.getGang()==prison[i].getGang()){
-                    bool = true;
-                }
-            }
-        }
-        return bool;
-    }
-
     public boolean gbossInPrison(Gang element){
         boolean bool = false;
             for(Boss boss : prison){

@@ -6,4 +6,8 @@ public class Boss extends Gang
     public Boss(String gang){
         super(gang);
     }
+
+    public int calculValeur(Prison prison){
+        return 0;
+    }
 }

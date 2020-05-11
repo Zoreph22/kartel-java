@@ -1,6 +1,6 @@
 package src;
 
-public class Gang extends Jeton{
+public abstract class Gang extends Jeton{
     //Attributs gang transmis par héritages dans les class Boss, Gangster, PotDeVin
     private String gang;
 
@@ -12,24 +12,5 @@ public class Gang extends Jeton{
         setGang(gang);
     }
 
-    public int calculValeur(Prison prison){
-        int valeur = 0;
-        if(prison.gbossInPrison(this)){
-            if(this instanceof Gangster){
-                Gangster g = (Gangster) this;
-                valeur = g.getTeamsize();
-            }
-        }
-        else{
-            if(this instanceof Gangster){
-                Gangster g = (Gangster) this;
-                valeur = -(g.getTeamsize());
-            }
-            if(this instanceof PotDeVin){
-                valeur = 3;
-            }
-        }
-        return valeur;
-    }
-
+    public abstract int calculValeur(Prison prison);
 }

@@ -10,7 +10,7 @@ public class Plateau {
     //Méthodes get et set des attributs
     public Jeton getElemPlateau(int i){return this.plateau[i];}
     public void setElemPlateau(int i, Jeton valeur){this.plateau[i]= valeur;}
-    public int getPlatLength(){return this.plateau.length;}
+    public int PlatLength(){return this.plateau.length;}
     public Detective getDetective(){return detective;}
     public void setDetective(Detective detective){this.detective = detective;}
     public void deleteCase(int pos){ this.plateau[pos] = null;}
@@ -62,7 +62,7 @@ public class Plateau {
     //Méthode qui permet de remettre le tableau en ordre lorsque le detective est arrivé au bout
     public void restartPlat(){
         Jeton tempPlat[] = new Jeton[tailleExact()];
-        int pos = this.getDetective().getCurrentPos(this);
+        int pos = this.getDetective().CurrentPos(this);
         int nb = 0;
         for(int i=pos;i<plateau.length;i++){
             tempPlat[nb] = plateau[i];
