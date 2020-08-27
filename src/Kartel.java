@@ -3,9 +3,8 @@ package src;
 public class Kartel {
     public static void main(String[] args){
 
-        Partie partie = new Partie();
-        partie.paramPartie();
-        partie.gestionPartie();
-
+        Menu menu = new Menu();
+        menu.menuStart();
+        menu.getPartie().gestionPartie();
     }
 }

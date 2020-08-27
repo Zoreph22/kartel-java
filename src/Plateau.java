@@ -5,7 +5,7 @@ public class Plateau {
     private Jeton plateau[] = new Jeton[43];
     private Detective detective = new Detective();
     private String lstngang[] = {"Rouge","Bleu","Vert","Jaune","Magenta","Orange","Gris"};
-    private String lstpgang[] = {"boss","solo","duo1","duo2","trio","pdv"};
+    private String lstpgang[] = {"boss","solo","duo","duo","trio","pdv"};
  
     //Méthodes get et set des attributs
     public Jeton getElemPlateau(int i){return this.plateau[i];}
@@ -36,7 +36,7 @@ public class Plateau {
                 if(pgang.equalsIgnoreCase("solo")){
                     plateau[i] = new Gangster(ngang, 1);
                 }  
-                if(pgang.equalsIgnoreCase("duo1") || pgang.equalsIgnoreCase("duo2")){
+                if(pgang.equalsIgnoreCase("duo")){
                     plateau[i] = new Gangster(ngang, 2);
                 }  
                 if(pgang.equalsIgnoreCase("trio")){

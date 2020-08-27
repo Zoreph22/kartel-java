@@ -7,18 +7,8 @@ public class Partie {
     private Plateau plateau = new Plateau(); 
     private Joueur joueurs[];
 
-    //Méthode qui permet de paramétrer la partie
-    public void paramPartie(){
-        System.out.println("Nombre de joueur de la partie ?");
-        int x = Lire.i();
-        this.joueurs = new Joueur[x];
-        for(int i=0;i<=this.joueurs.length-1;i++){
-            System.out.println("Saisir le nom du Joueur "+(i+1));
-            String nomjoueur = Lire.S(); 
-            this.joueurs[i] = new Joueur(nomjoueur, new Reserve());
-        }
-        initPartie();
-    }
+    public Joueur[] getJoueurs(){return this.joueurs;}
+    public void setJoueurs(Joueur[] joueurs){this.joueurs = joueurs;}
 
     //Initialisation de certains attributs
     public void initPartie(){
